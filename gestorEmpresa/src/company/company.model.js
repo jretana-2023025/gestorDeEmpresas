@@ -16,14 +16,10 @@ const companySchema = Schema(
             type:Number,
             required:[true,'years of experience is required']
         },
-        BusinessCategory:{
-            type:String,
-            required:[true,'Business Category is required']
-        },
+       
         category:{
-            type: Schema.Types.ObjectId,
-            ref: 'Category',
-            required:[true,'Category is required']
+           type:String,
+           required:true
         }
 
     },

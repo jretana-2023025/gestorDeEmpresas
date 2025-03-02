@@ -2,6 +2,7 @@
 
 import mongoose from "mongoose";
 
+
 //funcion de conexion
 
 export const connect = async()=>{

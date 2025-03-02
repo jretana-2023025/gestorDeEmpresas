@@ -1,5 +1,7 @@
 import User from '../users/user.model.js'
 import { encrypt } from '../../utils/encrypt.js'
+import { checkPassword } from '../../utils/encrypt.js'
+import {generateJwt} from '../../utils/jwt.js'
 import userModel from '../users/user.model.js'
 
 export const adminDefect= async () => {

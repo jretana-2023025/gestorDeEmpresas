@@ -1,7 +1,7 @@
 //Validar campos en las rutas
 import { body } from "express-validator"
 import { validateErrors, validateErrorsWithoutFiles } from "./validate.errors.js"
-import { existEmail, existUsername, notRequiredField, objectIdValid } from "../utils/db.validators.js"
+import { existEmail, existUsername, notRequiredField, objectIdValid,existCompany} from "../utils/db.validators.js"
 
 //Arreglo de validaciones (por cada ruta)
 export const registerValidator = [
@@ -58,21 +58,16 @@ export const updateUserValidator = [
     validateErrorsWithoutFiles 
 ]
 
-export const saveAnimalValidator = [
-    body('name', 'Name cannot be empty')
-        .isLength({max: 35})
-        .notEmpty(),
-    body('description', 'description cannot be empty')
-        .optional()
-        .notEmpty(),
-    body('age', 'Age cannot be empty')
-        .isLength({max: 10})
-        .notEmpty(),
-    body('type', 'Type cannot be empty')
-        .notEmpty()
-        .toUpperCase(),
-    body('keeper', 'Keeper cannot be empty')
-        .notEmpty()
-        .custom(objectIdValid),
-    validateErrorsWithoutFiles
+export const companyValidator=[
+    body('name')
+    .toLowerCase()
+    .notEmpty()
+    .custom(existCompany),
+    body('impactLevel')
+    .notEmpty(),
+    body('yearsOfExperience')
+    .notEmpty(),
+    body('category')
+    .notEmpty(),
+    validateErrors
 ]

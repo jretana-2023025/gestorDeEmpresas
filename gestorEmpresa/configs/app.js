@@ -6,7 +6,8 @@ import helmet from "helmet"
 import cors from 'cors'
 import adminRoutes from '../src/users/user.controller.js'
 import userRoutes from '../src/users/user.routes.js'
-import categoryRoutes from '../src/categories/category.routes.js'
+import companyRoutes from '../src/company/company.routes.js'
+//import categoryRoutes from '../src/categories/category.routes.js'
 import { limiter } from "../middlewares/rate.limit.js"
 
 const configs = (app)=>{
@@ -19,8 +20,9 @@ const configs = (app)=>{
 }
 
 const routes = (app)=>{
-    app.use('/v1/category',categoryRoutes)
+   // app.use('/v1/category',categoryRoutes)
     app.use('/v1/user',userRoutes)
+    app.use('/1v/company',companyRoutes)
 
 }
 

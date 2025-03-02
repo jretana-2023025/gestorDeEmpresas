@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "54b0019c-f3f0-4c3d-aba5-89759dd7f45b",
+		"name": "GestorDeEmpresas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37956954"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"token\",data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M0YzQ1YzQwMzMwN2I2YzQ1ZDliNjYiLCJ1c2VybmFtZSI6ImRyZXRhbmEiLCJuYW1lIjoiRGF2aWQiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NDA5NDkxMjgsImV4cCI6MTc0MDk1OTkyOH0.DudNxmdOycRU4ugD9JoxQpv7R2YNGEpKWKpwD27TeXA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userLoggin",
+									"value": "DRETANA",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123Qa@",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2036/v1/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2036",
+							"path": [
+								"v1",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Create Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "walmart",
+									"type": "text"
+								},
+								{
+									"key": "impactLevel",
+									"value": "HIGH",
+									"type": "text"
+								},
+								{
+									"key": "yearsOfExperience",
+									"value": "35",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "alimentos",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2036/1v/company/SaveCompany",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2036",
+							"path": [
+								"1v",
+								"company",
+								"SaveCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Companies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2036/1v/company/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2036",
+							"path": [
+								"1v",
+								"company",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "la torre",
+									"type": "text"
+								},
+								{
+									"key": "impactLevel",
+									"value": "HIGH",
+									"type": "text"
+								},
+								{
+									"key": "yearsOfExperience",
+									"value": "30",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "alimentos",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2036/1v/company/updateCompany/67c4c70563b34a85ab4a6f7b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2036",
+							"path": [
+								"1v",
+								"company",
+								"updateCompany",
+								"67c4c70563b34a85ab4a6f7b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Companies A-Z",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2036/1v/company/getAZ",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2036",
+							"path": [
+								"1v",
+								"company",
+								"getAZ"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Companies Z-A",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2036/1v/company/getZA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2036",
+							"path": [
+								"1v",
+								"company",
+								"getZA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Companies By Years",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "yearsInBusiness",
+									"value": "12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2036/1v/company/ByCategory/alimentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2036",
+							"path": [
+								"1v",
+								"company",
+								"ByCategory",
+								"alimentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CompaniesByYears",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "yearsInBusiness",
+									"value": "12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2036/1v/company/yearsOE/27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2036",
+							"path": [
+								"1v",
+								"company",
+								"yearsOE",
+								"27"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
